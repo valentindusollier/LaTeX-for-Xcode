@@ -9,7 +9,10 @@
 
 (
     
-    //Mark: Top-Level
+    /**************************************************************************/
+    // MARK: LaTeX Syntax Coloring
+    /**************************************************************************/
+    
     {
         Identifier = "xcode.lang.latex";
         Description = "LaTeX Coloring";
@@ -17,8 +20,38 @@
         BasedOn = "xcode.lang.simpleColoring";
         Name = "LaTeX";
         Syntax = {
+            IncludeRules = (
+                "xcode.lang.latex.command.special",
+                "xcode.lang.latex.command",
+            );
+            Type = "xcode.syntax.plain";
         };
     },
 
+    /**************************************************************************/
+    // MARK: Commands
+    /**************************************************************************/
+    
+    {
+        Identifier = "xcode.lang.latex.command";
+        Syntax = {
+            StartChars = "\\";
+            Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*";
+            Type = "xcode.syntax.keyword";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.latex.command.special";
+        Syntax = {
+            StartChars = "\\";
+            Chars = "&%#_{}$";
+            Match = (
+                "^\\\\[&%#_{}$]",
+            );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+    
 )
 
