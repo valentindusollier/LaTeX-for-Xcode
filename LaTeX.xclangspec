@@ -1,0 +1,15 @@
+(
+    
+    //Mark: Top-Level
+    {
+        Identifier = "xcode.lang.latex";
+        Description = "LaTeX Coloring";
+        IncludeInMenu = YES;
+        BasedOn = "xcode.lang.simpleColoring";
+        Name = "LaTeX";
+        Syntax = {
+        };
+    },
+
+)
+
