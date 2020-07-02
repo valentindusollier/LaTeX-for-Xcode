@@ -1,3 +1,12 @@
+// LaTeX.xclangspec
+
+// LaTex language specification for Xcode 11.5
+
+// Valentin Dusollier, 2 Jul 2020
+
+// Based on built-in Xcode language specifications which are at :
+// /Applications/Xcode.app/Contents/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageSpecifications
+
 (
     
     //Mark: Top-Level
