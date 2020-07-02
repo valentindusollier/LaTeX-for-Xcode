@@ -20,13 +20,27 @@
         BasedOn = "xcode.lang.simpleColoring";
         Name = "LaTeX";
         Syntax = {
+            Tokenizer = "xcode.lang.latex.lexer";
             IncludeRules = (
-                "xcode.lang.latex.command.special",
-                "xcode.lang.latex.command",
+                "xcode.lang.latex.block"
             );
             Type = "xcode.syntax.plain";
         };
     },
+    
+    {
+        Identifier = "xcode.lang.latex.lexer";
+        Syntax = {
+            IncludeRules = (
+                "xcode.lang.latex.block.begin",
+                "xcode.lang.latex.block.end",
+                
+                "xcode.lang.latex.command.special",
+                "xcode.lang.latex.command",
+            );
+        };
+    },
+
 
     /**************************************************************************/
     // MARK: Commands
@@ -50,6 +64,50 @@
                 "^\\\\[&%#_{}$]",
             );
             Type = "xcode.syntax.keyword";
+        };
+    },
+    
+    /**************************************************************************/
+    // MARK: Blocks
+    /**************************************************************************/
+    
+    {
+        Identifier = "xcode.lang.latex.block.begin";
+        Syntax = {
+            StartChars = "\\";
+            Match = (
+                "^\\\\begin\\{\(.*?\)\\}",
+            );
+            CaptureTypes = (
+                "xcode.syntax.identifier.variable",
+            );
+            Type = "xcode.syntax.entity.start";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.latex.block.end";
+        Syntax = {
+            StartChars = "\\";
+            Match = (
+                "^\\\\end\\{\(.*?\)\\}",
+            );
+            CaptureTypes = (
+                "xcode.syntax.identifier.variable",
+            );
+            Type = "xcode.syntax.entity";
+        };
+    },
+
+    {
+        Identifier = "xcode.lang.latex.block";
+        Syntax = {
+            Start = "xcode.lang.latex.block.begin";
+            End = "xcode.lang.latex.block.end";
+            Recursive = YES;
+            Foldable = YES;
+            Tokenizer = "xcode.lang.latex.lexer";
+            Type = "xcode.syntax.definition.function";
         };
     },
     
