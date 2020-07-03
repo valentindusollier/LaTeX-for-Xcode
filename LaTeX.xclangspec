@@ -32,6 +32,13 @@
         Identifier = "xcode.lang.latex.lexer";
         Syntax = {
             IncludeRules = (
+                "xcode.lang.latex.math.center.1",
+                "xcode.lang.latex.math.center.2",
+                "xcode.lang.latex.math.inline.1",
+                "xcode.lang.latex.math.inline.2",
+                
+                "xcode.lang.latex.comment",
+                
                 "xcode.lang.latex.block.begin",
                 "xcode.lang.latex.block.end",
                 
@@ -161,5 +168,65 @@
         };
     },
 
+    /**************************************************************************/
+    // MARK: Comments
+    /**************************************************************************/
+    
+    {
+        Identifier = "xcode.lang.latex.comment";
+        Syntax = {
+            Start = "%";
+            Until = "\n";
+            ParseEndBeforeIncludedRules = YES;
+            IncludeRules = (
+            );
+            Type = "xcode.syntax.comment";
+        };
+    },
+    
+    /**************************************************************************/
+    // MARK: Math
+    /**************************************************************************/
+    
+    {
+        Identifier = "xcode.lang.latex.math.inline.1";
+        Syntax = {
+            Start = "$";
+            End = "$";
+            Foldable = YES;
+            Type = "xcode.syntax.string";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.latex.math.inline.2";
+        Syntax = {
+            Start = "\\(";
+            End = "\\)";
+            Foldable = YES;
+            Type = "xcode.syntax.string";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.latex.math.center.1";
+        Syntax = {
+            Start = "$$";
+            End = "$$";
+            Foldable = YES;
+            Type = "xcode.syntax.string";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.latex.math.center.2";
+        Syntax = {
+            Start = "\\[";
+            End = "\\]";
+            Foldable = YES;
+            Type = "xcode.syntax.string";
+        };
+    },
+    
 )
 
