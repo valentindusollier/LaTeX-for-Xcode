@@ -42,4 +42,4 @@ fi
 # Copy the source code language plist to the metadata directory
 cp Xcode.SourceCodeLanguage.LaTeX.plist $metadata_dir
 
-echo 'LaTeX syntax highlighting for Xcode is now ready 🥳 Please restart Xcode and click "Load bundle" when an alert shows about LaTex.ideplugin.'
+echo 'Xcode syntax highlighting for LaTeX is now ready 🥳 Please restart Xcode and click "Load bundle" when an alert shows about LaTeX.ideplugin.'
