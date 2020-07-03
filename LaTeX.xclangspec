@@ -22,7 +22,7 @@
         Syntax = {
             Tokenizer = "xcode.lang.latex.lexer";
             IncludeRules = (
-                "xcode.lang.latex.block"
+                "xcode.lang.latex.block",
             );
             Type = "xcode.syntax.plain";
         };
@@ -36,6 +36,9 @@
                 "xcode.lang.latex.block.end",
                 
                 "xcode.lang.latex.command.special",
+                "xcode.lang.latex.command.significant",
+                "xcode.lang.latex.command.usepackage",
+                "xcode.lang.latex.command.usepackage.withoptions",
                 "xcode.lang.latex.command",
             );
         };
@@ -62,6 +65,53 @@
             Chars = "&%#_{}$";
             Match = (
                 "^\\\\[&%#_{}$]",
+            );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.latex.command.significant";
+        Syntax = {
+            StartChars = "\\";
+            Match = (
+                "^\\\\documentclass\\{\(.*?\)\\}",
+                "^\\\\section\\{\(.*?\)\\}",
+                "^\\\\subsection\\{\(.*?\)\\}",
+                "^\\\\subsubsection\\{\(.*?\)\\}",
+                "^\\\\paragraph\\{\(.*?\)\\}",
+            );
+            CaptureTypes = (
+                "xcode.syntax.identifier.variable",
+            );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.latex.command.usepackage";
+        Syntax = {
+            StartChars = "\\";
+            Match = (
+                "^\\\\usepackage\\{\(.*?\)\\}",
+            );
+            CaptureTypes = (
+                "xcode.syntax.identifier.variable",
+            );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.latex.command.usepackage.withoptions";
+        Syntax = {
+            StartChars = "\\";
+            Match = (
+                "^\\\\usepackage\\[\(.*?\)\\]\\{\(.*?\)\\}",
+            );
+            CaptureTypes = (
+                "xcode.syntax.preprocessor",
+                "xcode.syntax.identifier.variable",
             );
             Type = "xcode.syntax.keyword";
         };
@@ -110,6 +160,6 @@
             Type = "xcode.syntax.definition.function";
         };
     },
-    
+
 )
 
