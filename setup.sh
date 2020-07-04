@@ -42,4 +42,22 @@ fi
 # Copy the source code language plist to the metadata directory
 cp Xcode.SourceCodeLanguage.LaTeX.plist $metadata_dir
 
-echo 'Xcode syntax highlighting for LaTeX is now ready 🥳 Please restart Xcode and click "Load bundle" when an alert shows about LaTeX.ideplugin.'
+# Create the project templates directory if it doesn't exist
+project_templates_dir=~/Library/Developer/Xcode/Templates/Project\ Templates/LaTeX
+if [ ! -d "$project_templates_dir" ]; then
+    mkdir -pv "$project_templates_dir"
+fi
+
+# Copy the xctemplate file to the project templates directory
+cp -r "LaTeX Document.xctemplate" "$project_templates_dir"
+
+# Create the file templates directory if it doesn't exist
+file_templates_dir=~/Library/Developer/Xcode/Templates/File\ Templates/LaTeX
+if [ ! -d "$file_templates_dir" ]; then
+    mkdir -pv "$file_templates_dir"
+fi
+
+# Copy the xctemplate file to the file templates directory
+cp -r "LaTeX File.xctemplate" "$file_templates_dir"
+
+echo 'Xcode syntax highlighting and templates for LaTeX is now ready 🥳 Please restart Xcode and click "Load bundle" when an alert shows about LaTeX.ideplugin.'

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>com.valentindusollier.LaTeXDocument</string>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>___PROJECTNAME___</string>
+			<key>TargetType</key>
+			<string>Aggregate</string>
+			<key>BuildPhases</key>
+			<array>
+				<dict>
+					<key>Class</key>
+					<string>ShellScript</string>
+					<key>ShellPath</key>
+					<string>/bin/sh</string>
+					<key>ShellScript</key>
+					<string>/Library/TeX/texbin/pdflatex -output-directory=___PROJECTNAME___/ $(SRCROOT)___PROJECTNAME___/___PROJECTNAME___.tex &amp;&amp; open -a &quot;/Applications/XCode.app&quot; $(SRCROOT)___PROJECTNAME___/___PROJECTNAME___.pdf</string>
+				</dict>
+			</array>
+			<key>SharedSettings</key>
+			<dict>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.macosx</string>
+	</array>
+	<key>Definitions</key>
+	<dict>
+		<key>___PROJECTNAME___.tex</key>
+		<dict>
+			<key>Path</key>
+			<string>___PROJECTNAME___.tex</string>
+		</dict>
+		<key>___PROJECTNAME___.pdf</key>
+		<dict>
+			<key>Path</key>
+			<string>___PROJECTNAME___.pdf</string>
+		</dict>
+	</dict>
+	<key>Nodes</key>
+	<array>
+		<string>___PROJECTNAME___.tex</string>
+		<string>___PROJECTNAME___.pdf</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>Simple LaTeX document template</string>
+	<key>ProjectOnly</key>
+	<true/>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Product Name</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Description</key>
+			<string>Your new product&apos;s name</string>
+			<key>EmptyReplacement</key>
+			<string>ProductName</string>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+	</array>
+	<key>Project</key>
+	<dict>
+		<key>Configurations</key>
+		<dict>
+			<key>Debug</key>
+			<dict/>
+			<key>Release</key>
+			<dict/>
+		</dict>
+	</dict>
+</dict>
+</plist>
