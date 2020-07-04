@@ -4,13 +4,13 @@ This adds syntax highlighting for LaTeX source files to Xcode.
 
 ## Supported Xcode Versions
 
-This version works for Xcode 11.
+This version works with Xcode 11.
 
-This plugin won't be supported by future version of Xcode because it "will only attempt to load an .ideplugin if its Info.plist contains a UUID that matches the DVTPlugInCompatibilityUUID value in the Xcode's Info.plist. This UUID changes with each version of Xcode, so plugin authors need to keep adding UUIDs for each new Xcode that's released", README of [stencil-xclangspec](https://github.com/RobotsAndPencils/stencil-xclangspec) said. The key directories can also change in the furture, as has been the case in the past. So, when a new version will be released, the project should be updated and each user will have to install again the project.
+This plugin won't be supported by future versions of Xcode because it "will only attempt to load an .ideplugin if its Info.plist contains a UUID that matches the DVTPlugInCompatibilityUUID value in the Xcode's Info.plist. This UUID changes with each version of Xcode, so plugin authors need to keep adding UUIDs for each new Xcode that's released", README of [stencil-xclangspec](https://github.com/RobotsAndPencils/stencil-xclangspec) said. The key directories can also change in the furture, as has been the case in the past. So, when a new version will be released, the project should be updated and each user will have to install again the project.
 
 ## Installation
 
-The key directories changed across the latest version of Xcode, so the installation may not work after an update. Please file an issue or make a pull request if it stops working in a new version.
+The key directories changed across the latest versions of Xcode, so the installation may not work after an update. Please file an issue or make a pull request if it stops working in a new version.
 
 ### Easy installation
 
