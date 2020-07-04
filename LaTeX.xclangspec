@@ -61,7 +61,22 @@
         Syntax = {
             StartChars = "\\";
             Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*";
+            Words = (
+                "\\begin",
+                "\\end",
+                
+                "\\documentclass",
+                
+                "\\part",
+                "\\chapter",
+                "\\section",
+                "\\subsection",
+                "\\subsubsection",
+                "\\paragraph",
+                "\\subparagraph",
+            );
             Type = "xcode.syntax.keyword";
+            AltType = "xcode.syntax.keyword";
         };
     },
     
