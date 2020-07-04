@@ -83,10 +83,13 @@
             StartChars = "\\";
             Match = (
                 "^\\\\documentclass\\{\(.*?\)\\}",
+                "^\\\\part\\{\(.*?\)\\}",
+                "^\\\\chapter\\{\(.*?\)\\}",
                 "^\\\\section\\{\(.*?\)\\}",
                 "^\\\\subsection\\{\(.*?\)\\}",
                 "^\\\\subsubsection\\{\(.*?\)\\}",
                 "^\\\\paragraph\\{\(.*?\)\\}",
+                "^\\\\subparagraph\\{\(.*?\)\\}",
             );
             CaptureTypes = (
                 "xcode.syntax.identifier.variable",
