@@ -4,13 +4,13 @@ This adds syntax highlighting for LaTeX source files and basic templates to Xcod
 
 ## Usage
 
-Create a Xcode Project, go to macOS tab and select LaTeX Document. Build the project to compile the Tex file, the output will be showed in the Xcode PDF Viewer.
+Create a Xcode Project, go to macOS tab and select LaTeX Document. Build the project to compile the Tex file, the output will be shown in the Xcode PDF Viewer.
 
 ## Supported Xcode Versions
 
 This version works with Xcode 11.
 
-This plugin won't be supported by future versions of Xcode because it "will only attempt to load an .ideplugin if its Info.plist contains a UUID that matches the DVTPlugInCompatibilityUUID value in the Xcode's Info.plist. This UUID changes with each version of Xcode, so plugin authors need to keep adding UUIDs for each new Xcode that's released", README of [stencil-xclangspec](https://github.com/RobotsAndPencils/stencil-xclangspec) said. The key directories can also change in the future, as has been the case in the past. So, when a new version will be released, the project should be updated and each user will have to install again the project.
+This plugin won't be supported by future versions of Xcode because it "will only attempt to load an .ideplugin if its Info.plist contains a UUID that matches the DVTPlugInCompatibilityUUID value in the Xcode's Info.plist. This UUID changes with each version of Xcode, so plugin authors need to keep adding UUIDs for each new Xcode that's released", README of [stencil-xclangspec](https://github.com/RobotsAndPencils/stencil-xclangspec) said. The key directories can also change in the future, as it already happened. So, when a new version will be released, the project should be updated and each user will have to install again the project.
 
 ## Installation
 
