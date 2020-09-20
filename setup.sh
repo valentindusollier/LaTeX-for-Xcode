@@ -10,10 +10,10 @@ fi
 # Warns user to run the script as root
 if [ "$EUID" -ne 0 ]; then
     echo "⚠️  Please run as root."
-    exit
+    exit 1
 fi
 
-xcode_contents_dir=$(dirname "$(xcode-select -p)")
+xcode_contents_dir="/Applications/Xcode.app/Contents"
 
 # Create plug-ins directory if it doesn't exist
 plugins_dir=~/Library/Developer/Xcode/Plug-ins/
@@ -27,7 +27,10 @@ cp -r LaTeX.ideplugin $plugins_dir
 # Create Specifications directory if it doesn't exist
 spec_dir="${xcode_contents_dir}/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageSpecifications"
 if [ ! -d "$spec_dir" ]; then
-    mkdir $spec_dir
+    if ! mkdir $spec_dir; then
+        echo "❌ Unable to create the specs directory... ($spec_dir)"
+        exit 1
+    fi
 fi
 
 # Copy the language specification to the specs directory
@@ -36,7 +39,10 @@ cp LaTeX.xclangspec $spec_dir
 # Create the language metadata directory if it doesn't exist
 metadata_dir="${xcode_contents_dir}/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageMetadata"
 if [ ! -d "$metadata_dir" ]; then
-    mkdir $metadata_dir
+        if ! mkdir $metadata_dir; then
+        echo "❌ Unable to create the metadata directory... ($metadata_dir)"
+        exit 1
+    fi
 fi
 
 # Copy the source code language plist to the metadata directory
@@ -60,4 +66,4 @@ fi
 # Copy the xctemplate file to the file templates directory
 cp -r "LaTeX File.xctemplate" "$file_templates_dir"
 
-echo 'Xcode syntax highlighting and templates for LaTeX is now ready 🥳 Please restart Xcode and click "Load bundle" when an alert shows about LaTeX.ideplugin.'
+echo "Xcode syntax highlighting and templates for LaTeX is now ready 🥳 Please restart Xcode and click "Load bundle" when an alert shows about LaTeX.ideplugin."
