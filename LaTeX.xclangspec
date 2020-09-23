@@ -135,7 +135,7 @@
                 "^\\\\usepackage\\[\(.*?\)\\]\\{\(.*?\)\\}",
             );
             CaptureTypes = (
-                "xcode.syntax.preprocessor",
+                "xcode.syntax.attribute",
                 "xcode.syntax.identifier.variable",
             );
             Type = "xcode.syntax.keyword";
@@ -207,11 +207,35 @@
     /**************************************************************************/
     
     {
+        Identifier = "xcode.lang.latex.math.inner.command";
+        Syntax = {
+            StartChars = "\\";
+            Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*";
+            Type = "xcode.syntax.preprocessor";
+        };
+    },
+    
+    {
+        Identifier = "xcode.lang.latex.math.inner.command.text";
+        Syntax = {
+            StartChars = "\\";
+            Match = (
+                "^\\\\text\\{\(.*?\)\\}",
+            );
+            CaptureTypes = (
+                "xcode.syntax.plain",
+            );
+            Type = "xcode.syntax.keyword";
+        };
+    },
+    
+    {
         Identifier = "xcode.lang.latex.math.inline.1";
         Syntax = {
             Start = "$";
             End = "$";
             Foldable = YES;
+            IncludeRules = ( "xcode.lang.latex.math.inner.command.text", "xcode.lang.latex.math.inner.command" );
             Type = "xcode.syntax.string";
         };
     },
@@ -222,6 +246,7 @@
             Start = "\\(";
             End = "\\)";
             Foldable = YES;
+            IncludeRules = ( "xcode.lang.latex.math.inner.command.text", "xcode.lang.latex.math.inner.command" );
             Type = "xcode.syntax.string";
         };
     },
@@ -232,6 +257,7 @@
             Start = "$$";
             End = "$$";
             Foldable = YES;
+            IncludeRules = ( "xcode.lang.latex.math.inner.command.text", "xcode.lang.latex.math.inner.command" );
             Type = "xcode.syntax.string";
         };
     },
@@ -242,6 +268,7 @@
             Start = "\\[";
             End = "\\]";
             Foldable = YES;
+            IncludeRules = ( "xcode.lang.latex.math.inner.command.text", "xcode.lang.latex.math.inner.command" );
             Type = "xcode.syntax.string";
         };
     },
