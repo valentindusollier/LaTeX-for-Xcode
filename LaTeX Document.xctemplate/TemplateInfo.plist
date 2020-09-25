@@ -19,9 +19,19 @@
 					<key>Class</key>
 					<string>ShellScript</string>
 					<key>ShellPath</key>
-					<string>/bin/sh</string>
+					<string>/usr/bin/python</string>
 					<key>ShellScript</key>
-					<string>/Library/TeX/texbin/pdflatex -output-directory=___PROJECTNAME___/ $(SRCROOT)___PROJECTNAME___/___PROJECTNAME___.tex &amp;&amp; open -a &quot;/Applications/XCode.app&quot; $(SRCROOT)___PROJECTNAME___/___PROJECTNAME___.pdf</string>
+					<string>import os, re
+os.system(&quot;/Library/TeX/texbin/pdflatex -interaction=nonstopmode -output-directory=___PROJECTNAME___/ $(SRCROOT)___PROJECTNAME___/___PROJECTNAME___.tex&quot;)
+print(&quot;pdfTeX warnings and errors summary :&quot;)
+with open(os.environ[&apos;SRCROOT&apos;]+&quot;/___PROJECTNAME___/___PROJECTNAME___.log&quot;) as file:
+    content = file.read()
+    matches = re.finditer(r&quot;! (.*)\nl.([0-9]+) (.*)\n[ ]*(.*)&quot;, content, re.MULTILINE)
+    for _, match in enumerate(matches, start=1):
+        print(&quot;warning: Line %s: %s\n\t%s %s\n\t%s^\n\t%s%s&quot; % (match.group(2), match.group(1), match.group(3), match.group(4), &quot; &quot;*(len(match.group(3))-1), &quot; &quot;*(len(match.group(3))-1), match.group(1)))
+    if &quot;Fatal error occurred, no output PDF file produced!&quot; in content:
+        print(&quot;error: Fatal error occurred, no output PDF file produced! See pdfTeX logs above.&quot;)
+        exit(1)</string>
 				</dict>
 			</array>
 			<key>SharedSettings</key>

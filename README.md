@@ -4,7 +4,7 @@ This adds syntax highlighting for LaTeX source files and basic templates to Xcod
 
 ## Usage
 
-Create a Xcode Project, go to macOS tab and select LaTeX Document. Build the project to compile the Tex file, the output will be shown in the Xcode PDF Viewer.
+Create a Xcode Project, go to macOS tab and select LaTeX Document. Build the project to compile the Tex file.
 
 ## Supported Xcode Versions
 

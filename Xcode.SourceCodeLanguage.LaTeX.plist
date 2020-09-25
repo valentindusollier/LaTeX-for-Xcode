@@ -31,6 +31,8 @@
 	<true/>
 	<key>requiresHardTabs</key>
 	<false/>
+	<key>scriptingLanguage</key>
+	<true/>
 	<key>indentationTriggers</key>
 	<array>
 		<string>{</string>
